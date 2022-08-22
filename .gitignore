@@ -1,3 +1,5 @@
 
 *.exe
 .vscode/settings.json
+*.bin
+tempCodeRunnerFile.cpp
