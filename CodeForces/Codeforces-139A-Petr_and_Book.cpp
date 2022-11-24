@@ -19,3 +19,15 @@ int main(void)
 
     return 0;
 }
+/*
+Optimized way:
+    
+    int t = a[0];
+    int i=0;
+    while (sum < n)
+    {
+        i++;
+        i %= 7;
+        t += a[i];
+    }
+*/
