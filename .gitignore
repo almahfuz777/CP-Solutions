@@ -3,3 +3,4 @@
 .vscode/settings.json
 *.bin
 tempCodeRunnerFile.cpp
+.gitattributes

@@ -1,22 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define fast ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr)
+#define pi = 3.1415926535897932384626
+#define testcase int t; cin >> t; while(t--)
+#define ll long long
 
-int main(void)
-{
-    vector<int> v;
+int main() {
+fast;  
     int n,m,x; cin >> n >> m >> x;
-    for(int i=0;i<m;i++) {
-        int q; cin >> q;
-        v.push_back(q);
+    int arr[m];
+    int left=0, right=0;
+    for(int i=0;i<m;i++){
+        cin >> arr[m];
+        if(arr[m]>x) right++;
+        else if(arr[m]<x) left++;
     }
-    int cnt1=0, cnt2=0;
-    for(int i=x+1;i<n;i++){
-        if(find(v.begin(),v.end(),i)!=v.end()) cnt1++;
-    }
-    for(int i=x-1;i>0;i--){
-        if(find(v.begin(),v.end(),i)!=v.end()) cnt2++;
-    }
-    int res=(cnt1<cnt2)? cnt1:cnt2;
-    cout << res << endl;
+    int cost =(right<left)? right:left;
+    cout << cost << endl;
     return 0;
 }
