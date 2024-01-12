@@ -3,33 +3,34 @@ using namespace std;
 #define fast ios::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr)
 #define testcase int t; cin >> t; while(t--)
 #define ll long long
+#define all(v) v.begin(),v.end()
 
 int main() {
 fast;
 testcase{
-    string s,str=""; cin >> s;
-    for(char c:s){
-        if(c!='B' && c!='b') str+=c;
-        else if(c=='b' && !str.empty()){
-            for(int i=str.size()-1;i>=0;i--){
-                if (islower(str[i])) {
-                    str.erase(i,1);
-                    break;
-                }
-                
-            }
+    string s; cin >> s;
+    vector<pair<int,char>> upper,lower,v;
+    int rmvcnt=0;
+    for(int i=0;i<s.size();i++){
+        if(s[i]=='B'){
+            if(!upper.empty()) upper.pop_back();
+        } 
+        else if(s[i]=='b'){
+            if(!lower.empty()) lower.pop_back();
         }
-        else if(c=='B' && !str.empty()){
-            for(int i=str.size()-1;i>=0;i--){
-                if (isupper(str[i])) {
-                    str.erase(i,1);
-                    break;
-                }
-                
-            }
+        else{
+            if(islower(s[i])) lower.push_back({i,s[i]});
+            if(isupper(s[i])) upper.push_back({i,s[i]});
         }
     }
-        cout << str << endl;
+    
+    for(auto x:upper) v.push_back(x);
+    for(auto x:lower) v.push_back(x);
+    sort(all(v));
+    for(auto x:v) cout << x.second;
+    cout << endl;
+
 }
+
     return 0;
 }
