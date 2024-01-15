@@ -1,6 +1,8 @@
 
 *.exe
+*.prob
 .vscode/settings.json
 *.bin
 tempCodeRunnerFile.cpp
 .gitattributes
+.cph/
